@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O melhor método da Luana Souza — Sucesso na Cozinha</title>
+    <style>
+        :root {
+            --primary: #f59e0b;
+            --primary-dark: #d97706;
+            --primary-light: #fef3c7;
+            --secondary: #4f46e5;
+            --secondary-dark: #3730a3;
+            --success: #10b981;
+            --bg-body: #fdfcfb;
+            --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #f7f3f0 100%);
+            --text-main: #111827;
+            --text-muted: #4b5563;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility classes */
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-headline {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: none; /* Hidden on small mobile, shown on tablet/desktop */
+        }
+
+        @media (min-width: 480px) {
+            .logo-headline {
+                display: block;
+            }
+        }
+
+        .logo-preview {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            background: linear-gradient(to right, #111827, #374151);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 25px 30px -5px rgba(245, 158, 11, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .section-title p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-light);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .user-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .stars {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 2px;
+        }
+
+        .testimonial-body {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* Illustrations */
+        .illus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .illus-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+        }
+
+        .illus-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+        }
+
+        .svg-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 30px auto 0;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Offers */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .offer-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: scale(1.02);
+            z-index: 10;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            z-index: 5;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .offer-image-box {
+            width: 100%;
+            height: 240px;
+            background: #f9fafb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .offer-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .offer-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .offer-price {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            font-weight: 900;
+            margin-bottom: 24px;
+        }
+
+        .offer-features {
+            list-style: none;
+            margin-bottom: 32px;
+            flex-grow: 1;
+        }
+
+        .offer-features li {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .offer-features li::before {
+            content: "✔";
+            color: var(--success);
+            font-weight: 900;
+        }
+
+        .offer-cta {
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .offer-cta:hover {
+            background: var(--secondary-dark);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 60px 0 40px; }
+            .hero h1 { font-size: 2.2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .illus-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <div class="logo-preview" id="logoPreview">
+                    <img src="https://i.ibb.co/0pC3TrY8/lu-salgados.jpg" alt="Logo">
+                </div>
+                <h2 class="logo-headline">site da luana salgados</h2>
+            </div>
+            <nav>
+                <button class="cta-button" style="padding: 10px 24px; font-size: 0.875rem; box-shadow: none;">Login Alunas</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <h1>O melhor método da Luana Souza</h1>
+            <p>O método passo a passo que transformou amadores em profissionais de sucesso, faturando alto com receitas validadas pelo mercado.</p>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <button class="cta-button" onclick="document.getElementById('ofertas').scrollIntoView({behavior: 'smooth'})">Quero Começar Agora</button>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Junte-se a milhares de mulheres empreendedoras</span>
+            </div>
+        </section>
+
+        <!-- Social Proof Section -->
+        <section id="provas" class="container">
+            <div class="section-title text-center">
+                <h2>Alunas Satisfeitas</h2>
+                <p>Veja como estamos impactando vidas em todo o Brasil.</p>
+            </div>
+            <div class="testimonials-grid" id="testimonialsList">
+                <!-- Testimonials injected by JS -->
+            </div>
+        </section>
+
+        <!-- Illustrations Section -->
+        <section id="ilustracoes" class="container" style="background: rgba(245, 158, 11, 0.03); border-radius: 40px;">
+            <div class="section-title text-center">
+                <h2>Didática Visual Exclusiva</h2>
+                <p>Nossas ilustrações facilitam o entendimento de texturas e processos técnicos.</p>
+            </div>
+            <div class="illus-grid">
+                <!-- Style A: Drawing/Line Art -->
+                <div class="illus-card">
+                    <h3>Estilo Desenho (Line Art)</h3>
+                    <p>Foco na estrutura e técnica de fechamento dos salgados.</p>
+                    <div class="svg-container">
+                        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M150 50 L100 200 Q150 250 200 200 Z" stroke="#4f46e5" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M150 50 L150 220" stroke="#4f46e5" stroke-width="1" stroke-dasharray="5 5"/>
+                            <circle cx="150" cy="50" r="4" fill="#4f46e5"/>
+                            <text x="150" y="270" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6b7280">ESQUEMA TÉCNICO DE DOBRA</text>
+                            <path d="M120 180 Q150 170 180 180" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M110 200 L190 200" stroke="#e5e7eb" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <!-- Style B: Realistic/Shaded -->
+                <div class="illus-card">
+                    <h3>Estilo Realista (3D/Shadow)</h3>
+                    <p>Ideal para identificar o ponto certo da massa e a fritura perfeita.</p>
+                    <div class="svg-container">
+                        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="crust" cx="50%" cy="40%" r="60%">
+                                    <stop offset="0%" style="stop-color:#fbbf24" />
+                                    <stop offset="80%" style="stop-color:#d97706" />
+                                    <stop offset="100%" style="stop-color:#92400e" />
+                                </radialGradient>
+                                <filter id="softGlow">
+                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            <ellipse cx="150" cy="240" rx="80" ry="20" fill="#000" fill-opacity="0.1" />
+                            <path d="M150 60 C100 60 80 120 80 180 C80 230 150 250 150 250 C150 250 220 230 220 180 C220 120 200 60 150 60Z" fill="url(#crust)" filter="url(#softGlow)" />
+                            <path d="M110 120 Q 150 100 190 120" stroke="white" stroke-width="5" stroke-linecap="round" stroke-opacity="0.3" />
+                            <circle cx="130" cy="180" r="2" fill="white" fill-opacity="0.5" />
+                            <circle cx="170" cy="160" r="3" fill="white" fill-opacity="0.5" />
+                            <text x="150" y="285" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1f2937">TEXTURA E VOLUME REAL</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offers Section -->
+        <section id="ofertas" class="container">
+            <div class="section-title text-center">
+                <h2>Nossos Programas</h2>
+                <p>Do iniciante ao profissional. Escolha o ideal para você.</p>
+            </div>
+            <div class="offers-grid">
+                <!-- Offer 1 -->
+                <div class="offer-card">
+                    <div class="offer-badge">BÁSICO</div>
+                    <div class="offer-image-box" id="offer1Preview">
+                        <img src="https://i.ibb.co/Rpd9zxHZ/Logo-para-Receitas-Doces-Delicado-Laranja.png" alt="Oferta 1">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Receitas Grátis</h3>
+                        <p class="offer-price">BAIXAR AGORA</p>
+                        <ul class="offer-features">
+                            <li>A receita lucrativa</li>
+                            <li>1 Vídeo-aula Exclusiva</li>
+                            <li>Guia de Utensílios Básicos</li>
+                        </ul>
+                        <a href="https://pay.kirvano.com/92261fc2-85f3-437e-8b35-a190c25781d0" target="_blank" class="offer-cta">Quero minha receita</a>
+                    </div>
+                </div>
+                <!-- Offer 2 -->
+                <div class="offer-card" style="border: 3px solid var(--primary); transform: scale(1.05);">
+                    <div class="offer-badge" style="background: #ef4444;">MAIS VENDIDO</div>
+                    <div class="offer-image-box" id="offer2Preview">
+                        <img src="https://i.ibb.co/4ZKzKy89/guia-dos-salgados.webp" alt="Oferta 2">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Código Doce Salgado Lucrativo</h3>
+                        <p class="offer-price">R$ 17,90</p>
+                        <ul class="offer-features">
+                            <li>Acesso ao Código Secreto</li>
+                            <li>Livro de Receitas da Luana</li>
+                            <li>Acesso Vitalício via App</li>
+                            <li>Garantia Incondicional 7 Dias</li>
+                        </ul>
+                        <a href="https://pay.kirvano.com/2b3f1b1f-f4d4-43b3-9863-8a97bc45b0ba" target="_blank" class="offer-cta" style="background: var(--primary);">Destravar Código Agora</a>
+                    </div>
+                </div>
+                <!-- Offer 3 -->
+                <div class="offer-card">
+                    <div class="offer-badge">PROFISSIONAL</div>
+                    <div class="offer-image-box" id="offer3Preview">
+                        <img src="https://i.ibb.co/Y7SqXhMb/curso-salgados.webp" alt="Oferta 3">
+                    </div>
+                    <div class="offer-content">
+                        <h3 class="offer-title">Mestre do Salgado</h3>
+                        <p class="offer-price">R$ 47,90</p>
+                        <ul class="offer-features">
+                            <li>Curso Completo (40+ Aulas)</li>
+                            <li>Módulo de Gestão e Vendas</li>
+                            <li>Certificado Digital</li>
+                            <li>Comunidade Alunas VIP</li>
+                        </ul>
+                        <a href="https://pay.kirvano.com/63a28a47-b22b-43a7-afdf-9a9696d76c76" target="_blank" class="offer-cta">Entrar no Curso Completo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <h2 style="color: white; font-weight: 900;">O melhor método da Luana Souza</h2>
+            <p style="color: #94a3b8; margin-top: 12px; font-size: 0.9rem;">Treinamentos de Gastronomia e Empreendedorismo Ltda.</p>
+            <div class="footer-links">
+                <a href="javascript:void(0)">Políticas de Privacidade</a>
+                <a href="javascript:void(0)">Termos de Uso</a>
+                <a href="javascript:void(0)">Contato</a>
+                <a href="javascript:void(0)">Aviso Legal</a>
+            </div>
+            <p style="color: #475569; margin-top: 40px; font-size: 0.75rem;">Este produto não garante resultados. Todo negócio exige esforço e dedicação para ser bem sucedido.</p>
+        </div>
+    </footer>
+
+    <script>
+        const femaleNames = [
+            "Mariana Silva", "Fernanda Oliveira", "Beatriz Costa", "Ana Paula Souza", 
+            "Juliana Pereira", "Camila Santos", "Letícia Lima", "Renata Barbosa", 
+            "Larissa Melo", "Priscila Rocha", "Cláudia Ribeiro", "Amanda Farias"
+        ];
+
+        const profileImages = [
+            "https://i.ibb.co/pr35jYZ9/m1.jpg",
+            "https://i.ibb.co/Q4VbcmM/m2.jpg",
+            "https://i.ibb.co/7xWJJLmg/m3.jpg",
+            "https://i.ibb.co/93nwZ4yJ/m4.webp",
+            "https://i.ibb.co/d0fG59D0/m5.jpg",
+            "https://i.ibb.co/ZzJ2Zs6v/m6.webp",
+            "https://i.ibb.co/PsN4yHtw/m7.jpg",
+            "https://i.ibb.co/YFMJ5QQV/m8.jpg",
+            "https://i.ibb.co/jPFXrwTw/m9.jpg",
+            "https://i.ibb.co/d0ZTJTkF/m10.jpg",
+            "https://i.ibb.co/v6q9St6x/m11.jpg",
+            "https://i.ibb.co/RTBqSD7p/m12.jpg"
+        ];
+
+        const testimonialTexts = [
+            "O curso mudou minha vida! Comecei vendendo para vizinhos e hoje tenho minha própria lanchonete.",
+            "As receitas são muito fáceis de seguir. O salgado não murcha e o sabor é simplesmente incrível!",
+            "Melhor investimento que já fiz. A Luana explica tudo com muita paciência e clareza.",
+            "Amei a receita grátis e logo comprei o curso completo. Vale cada centavo economizado.",
+            "Nunca imaginei que poderia ganhar dinheiro cozinhando. Hoje minha renda familiar triplicou.",
+            "Os vídeos são maravilhosos. O ponto da massa é o secret que ninguém contava em outros cursos.",
+            "Já tinha tentado outras receitas mas nenhuma ficava igual a essas. Recomendo para todas as iniciantes!",
+            "Atendimento nota mil e o material de apoio é de altíssima qualidade. Parabéns à equipe.",
+            "O Código Doce Salgado Lucrativo é genial. Prático e direto ao ponto que interessa: lucro!",
+            "Garantia respeitada e acesso rápido. Comecei a estudar no mesmo dia que fiz o pagamento.",
+            "Minha família amou os salgados e agora estou recebendo encomendas até de empresas locais!",
+            "O curso Mestre do Salgado é muito completo, do básico até como embalar para vender com segurança."
+        ];
+
+        function generateTestimonials() {
+            const container = document.getElementById('testimonialsList');
+            container.innerHTML = '';
+
+            for (let i = 0; i < 12; i++) {
+                const rating = (Math.random() * (5.0 - 4.2) + 4.2).toFixed(1);
+                
+                const card = document.createElement('div');
+                card.className = 'testimonial-card';
+                card.innerHTML = `
+                    <div class="testimonial-header">
+                        <div class="user-photo" id="userPhoto-${i}">
+                            <img src="${profileImages[i]}" alt="${femaleNames[i]}">
+                        </div>
+                        <div class="user-info">
+                            <h4>${femaleNames[i]}</h4>
+                            <div class="stars">
+                                ${Array(5).fill('★').join('')} <span style="color: var(--text-muted); font-weight: bold; margin-left: 4px;">${rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="testimonial-body">"${testimonialTexts[i]}"</p>
+                `;
+                container.appendChild(card);
+            }
+        }
+
+        window.onload = function() {
+            generateTestimonials();
+        };
+    </script>
+</body>
+</html>
