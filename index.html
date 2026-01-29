@@ -116,7 +116,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 900;
             line-height: 1.1;
             letter-spacing: -0.02em;
@@ -129,7 +129,7 @@
         .hero p {
             font-size: 1.25rem;
             color: var(--text-muted);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 40px;
         }
 
@@ -158,20 +158,47 @@
 
         /* Sections */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             letter-spacing: -0.01em;
+            line-height: 1.2;
         }
 
         .section-title p {
-            font-size: 1.125rem;
+            font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        /* Social Proof Gallery */
+        .social-proof-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .proof-img-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 4px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .proof-img-container:hover {
+            transform: scale(1.03);
+        }
+
+        .proof-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Testimonials */
@@ -438,9 +465,6 @@
                 </div>
                 <h2 class="logo-headline">site da luana salgados</h2>
             </div>
-            <nav>
-                <button class="cta-button" style="padding: 10px 24px; font-size: 0.875rem; box-shadow: none;">Login Alunas</button>
-            </nav>
         </div>
     </header>
 
@@ -448,18 +472,37 @@
         <!-- Hero Section -->
         <section class="hero container">
             <h1>O melhor método da Luana Souza</h1>
-            <p>O método passo a passo que transformou amadores em profissionais de sucesso, faturando alto com receitas validadas pelo mercado.</p>
+            <p>O sistema comprovado para faturar alto com salgados profissionais, começando do absoluto zero. Receitas exclusivas, técnicas de vendas e muito lucro.</p>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
                 <button class="cta-button" onclick="document.getElementById('ofertas').scrollIntoView({behavior: 'smooth'})">Quero Começar Agora</button>
-                <span style="font-size: 0.8rem; color: var(--text-muted);">Junte-se a milhares de mulheres empreendedoras</span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Junte-se a mais de 10.000 alunas em todo o mundo</span>
             </div>
         </section>
 
-        <!-- Social Proof Section -->
-        <section id="provas" class="container">
+        <!-- New Social Proof Section -->
+        <section id="provas-sociais" class="container">
             <div class="section-title text-center">
-                <h2>Alunas Satisfeitas</h2>
-                <p>Veja como estamos impactando vidas em todo o Brasil.</p>
+                <h2>O que nossas clientes dizem sobre o método</h2>
+                <p>Resultados reais de quem aplicou o passo a passo e transformou sua realidade financeira.</p>
+            </div>
+            <div class="social-proof-gallery">
+                <div class="proof-img-container">
+                    <img src="https://rzqgbxnhjdxcigkawqsl.supabase.co/storage/v1/object/public/teasers/Design%20sem%20nome%20(3).png" alt="Resultado de cliente 1">
+                </div>
+                <div class="proof-img-container">
+                    <img src="https://rzqgbxnhjdxcigkawqsl.supabase.co/storage/v1/object/public/teasers/Design%20sem%20nome%20(4).png" alt="Resultado de cliente 2">
+                </div>
+                <div class="proof-img-container">
+                    <img src="https://rzqgbxnhjdxcigkawqsl.supabase.co/storage/v1/object/public/teasers/Design%20sem%20nome%20(5).png" alt="Resultado de cliente 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="provas" class="container" style="padding-top: 0;">
+            <div class="section-title text-center">
+                <h2 style="font-size: 2rem;">Relatos de Alunas Satisfeitas</h2>
+                <p>Histórias de sucesso que inspiram.</p>
             </div>
             <div class="testimonials-grid" id="testimonialsList">
                 <!-- Testimonials injected by JS -->
@@ -475,14 +518,14 @@
             <div class="illus-grid">
                 <!-- Style A: Drawing/Line Art -->
                 <div class="illus-card">
-                    <h3>Estilo Desenho (Line Art)</h3>
-                    <p>Foco na estrutura e técnica de fechamento dos salgados.</p>
+                    <h3>Esquemas Técnicos</h3>
+                    <p>Entenda a engenharia por trás de cada dobra e fechamento perfeito.</p>
                     <div class="svg-container">
                         <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M150 50 L100 200 Q150 250 200 200 Z" stroke="#4f46e5" stroke-width="2" stroke-linejoin="round"/>
                             <path d="M150 50 L150 220" stroke="#4f46e5" stroke-width="1" stroke-dasharray="5 5"/>
                             <circle cx="150" cy="50" r="4" fill="#4f46e5"/>
-                            <text x="150" y="270" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6b7280">ESQUEMA TÉCNICO DE DOBRA</text>
+                            <text x="150" y="270" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#6b7280">ESTRUTURA DE MODELAGEM</text>
                             <path d="M120 180 Q150 170 180 180" stroke="#f59e0b" stroke-width="2"/>
                             <path d="M110 200 L190 200" stroke="#e5e7eb" stroke-width="1"/>
                         </svg>
@@ -490,8 +533,8 @@
                 </div>
                 <!-- Style B: Realistic/Shaded -->
                 <div class="illus-card">
-                    <h3>Estilo Realista (3D/Shadow)</h3>
-                    <p>Ideal para identificar o ponto certo da massa e a fritura perfeita.</p>
+                    <h3>Texturas Reais</h3>
+                    <p>Identifique o ponto exato da massa apenas olhando para o brilho e volume.</p>
                     <div class="svg-container">
                         <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <defs>
@@ -510,7 +553,7 @@
                             <path d="M110 120 Q 150 100 190 120" stroke="white" stroke-width="5" stroke-linecap="round" stroke-opacity="0.3" />
                             <circle cx="130" cy="180" r="2" fill="white" fill-opacity="0.5" />
                             <circle cx="170" cy="160" r="3" fill="white" fill-opacity="0.5" />
-                            <text x="150" y="285" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1f2937">TEXTURA E VOLUME REAL</text>
+                            <text x="150" y="285" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1f2937">IDENTIFICAÇÃO DE PONTO</text>
                         </svg>
                     </div>
                 </div>
@@ -520,8 +563,8 @@
         <!-- Offers Section -->
         <section id="ofertas" class="container">
             <div class="section-title text-center">
-                <h2>Nossos Programas</h2>
-                <p>Do iniciante ao profissional. Escolha o ideal para você.</p>
+                <h2>Escolha seu Caminho para o Sucesso</h2>
+                <p>Nossos pacotes foram desenhados para todos os níveis de ambição.</p>
             </div>
             <div class="offers-grid">
                 <!-- Offer 1 -->
@@ -531,19 +574,19 @@
                         <img src="https://i.ibb.co/Rpd9zxHZ/Logo-para-Receitas-Doces-Delicado-Laranja.png" alt="Oferta 1">
                     </div>
                     <div class="offer-content">
-                        <h3 class="offer-title">Receitas Grátis</h3>
+                        <h3 class="offer-title">Acesso Inicial</h3>
                         <p class="offer-price">BAIXAR AGORA</p>
                         <ul class="offer-features">
                             <li>A receita lucrativa</li>
-                            <li>1 Vídeo-aula Exclusiva</li>
-                            <li>Guia de Utensílios Básicos</li>
+                            <li>1 Vídeo-aula Estrutural</li>
+                            <li>Checklist de Início Rápido</li>
                         </ul>
                         <a href="https://pay.kirvano.com/92261fc2-85f3-437e-8b35-a190c25781d0" target="_blank" class="offer-cta">Quero minha receita</a>
                     </div>
                 </div>
                 <!-- Offer 2 -->
                 <div class="offer-card" style="border: 3px solid var(--primary); transform: scale(1.05);">
-                    <div class="offer-badge" style="background: #ef4444;">MAIS VENDIDO</div>
+                    <div class="offer-badge" style="background: #ef4444;">O MAIS COMPLETO</div>
                     <div class="offer-image-box" id="offer2Preview">
                         <img src="https://i.ibb.co/4ZKzKy89/guia-dos-salgados.webp" alt="Oferta 2">
                     </div>
@@ -551,30 +594,30 @@
                         <h3 class="offer-title">Código Doce Salgado Lucrativo</h3>
                         <p class="offer-price">R$ 17,90</p>
                         <ul class="offer-features">
-                            <li>Acesso ao Código Secreto</li>
-                            <li>Livro de Receitas da Luana</li>
-                            <li>Acesso Vitalício via App</li>
-                            <li>Garantia Incondicional 7 Dias</li>
+                            <li>Acesso Completo ao Código Secreto</li>
+                            <li>O Guia Definitivo dos Salgados</li>
+                            <li>Técnicas de Precificação Pro</li>
+                            <li>Acesso Vitalício + Atualizações</li>
                         </ul>
-                        <a href="https://pay.kirvano.com/2b3f1b1f-f4d4-43b3-9863-8a97bc45b0ba" target="_blank" class="offer-cta" style="background: var(--primary);">Destravar Código Agora</a>
+                        <a href="https://pay.kirvano.com/2b3f1b1f-f4d4-43b3-9863-8a97bc45b0ba" target="_blank" class="offer-cta" style="background: var(--primary);">Destravar Método Agora</a>
                     </div>
                 </div>
                 <!-- Offer 3 -->
                 <div class="offer-card">
-                    <div class="offer-badge">PROFISSIONAL</div>
+                    <div class="offer-badge">AVANÇADO</div>
                     <div class="offer-image-box" id="offer3Preview">
                         <img src="https://i.ibb.co/Y7SqXhMb/curso-salgados.webp" alt="Oferta 3">
                     </div>
                     <div class="offer-content">
-                        <h3 class="offer-title">Mestre do Salgado</h3>
+                        <h3 class="offer-title">Mestre do Salgado Pro</h3>
                         <p class="offer-price">R$ 47,90</p>
                         <ul class="offer-features">
-                            <li>Curso Completo (40+ Aulas)</li>
-                            <li>Módulo de Gestão e Vendas</li>
-                            <li>Certificado Digital</li>
-                            <li>Comunidade Alunas VIP</li>
+                            <li>Curso em Vídeo (40+ Módulos)</li>
+                            <li>Mentoria em Grupo Mensal</li>
+                            <li>Certificação Profissional</li>
+                            <li>Acesso à Comunidade VIP</li>
                         </ul>
-                        <a href="https://pay.kirvano.com/63a28a47-b22b-43a7-afdf-9a9696d76c76" target="_blank" class="offer-cta">Entrar no Curso Completo</a>
+                        <a href="https://pay.kirvano.com/63a28a47-b22b-43a7-afdf-9a9696d76c76" target="_blank" class="offer-cta">Inscrição Profissional</a>
                     </div>
                 </div>
             </div>
@@ -618,32 +661,33 @@
         ];
 
         const testimonialTexts = [
-            "O curso mudou minha vida! Comecei vendendo para vizinhos e hoje tenho minha própria lanchonete.",
-            "As receitas são muito fáceis de seguir. O salgado não murcha e o sabor é simplesmente incrível!",
-            "Melhor investimento que já fiz. A Luana explica tudo com muita paciência e clareza.",
-            "Amei a receita grátis e logo comprei o curso completo. Vale cada centavo economizado.",
-            "Nunca imaginei que poderia ganhar dinheiro cozinhando. Hoje minha renda familiar triplicou.",
-            "Os vídeos são maravilhosos. O ponto da massa é o secret que ninguém contava em outros cursos.",
-            "Já tinha tentado outras receitas mas nenhuma ficava igual a essas. Recomendo para todas as iniciantes!",
-            "Atendimento nota mil e o material de apoio é de altíssima qualidade. Parabéns à equipe.",
-            "O Código Doce Salgado Lucrativo é genial. Prático e direto ao ponto que interessa: lucro!",
-            "Garantia respeitada e acesso rápido. Comecei a estudar no mesmo dia que fiz o pagamento.",
-            "Minha família amou os salgados e agora estou recebendo encomendas até de empresas locais!",
-            "O curso Mestre do Salgado é muito completo, do básico até como embalar para vender com segurança."
+            "O método da Luana salvou minhas contas! Eu não sabia nada e hoje faturo mais de 3 mil por mês.",
+            "Incrível como as técnicas facilitam o dia a dia. Meus salgados são os mais elogiados do bairro!",
+            "Melhor investimento que já fiz no meu pequeno negócio. A clareza das aulas é fora do comum.",
+            "As receitas são infalíveis. O sabor é marcante e o lucro é garantido desde a primeira fornada.",
+            "Transformei minha cozinha em uma fábrica de sonhos. Gratidão eterna à Luana Souza!",
+            "Os detalhes técnicos fazem toda a diferença na hora de vender. Clientes fidelizados na hora.",
+            "Nunca imaginei que modelar salgados pudesse ser tão profissional e rentável ao mesmo tempo.",
+            "Material de apoio excelente. Tudo muito bem organizado e fácil de aplicar.",
+            "O Código Doce Salgado mudou meu mindset. Agora entendo de custos e lucro real.",
+            "Suporte maravilhoso e comunidade engajada. Você nunca está sozinha nessa jornada.",
+            "Meus filhos amam ajudar e as encomendas não param de chegar pelo WhatsApp!",
+            "Se você quer profissionalismo e faturamento de verdade, este é o único caminho."
         ];
 
         function generateTestimonials() {
             const container = document.getElementById('testimonialsList');
+            if (!container) return;
             container.innerHTML = '';
 
             for (let i = 0; i < 12; i++) {
-                const rating = (Math.random() * (5.0 - 4.2) + 4.2).toFixed(1);
+                const rating = (Math.random() * (5.0 - 4.7) + 4.7).toFixed(1);
                 
                 const card = document.createElement('div');
                 card.className = 'testimonial-card';
                 card.innerHTML = `
                     <div class="testimonial-header">
-                        <div class="user-photo" id="userPhoto-${i}">
+                        <div class="user-photo">
                             <img src="${profileImages[i]}" alt="${femaleNames[i]}">
                         </div>
                         <div class="user-info">
